@@ -22,5 +22,21 @@ function getComputerChoice() {
     }
 }
 
+function playRound(player, computer) {
+    switch (true) {
+        case player === computer:
+            return "It's a tie!";
+
+        case player === "Rock" && computer === "Scissors":
+        case player === "Paper" && computer === "Rock":
+        case player === "Scissors" && computer === "Paper":
+            return `You Win! ${player} beats ${computer}.`;
+
+        default:
+            return `You Lose! ${computer} beats ${player}.`;
+    }
+}
+
 const playerSelection = getPlayerChoice();
 const computerSelection = getComputerChoice();
+console.log(playRound(playerSelection, computerSelection));
