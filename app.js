@@ -25,18 +25,41 @@ function getComputerChoice() {
 function playRound(player, computer) {
     switch (true) {
         case player === computer:
-            return "It's a tie!";
+            console.log("It's a tie!");
+            break;
 
         case player === "Rock" && computer === "Scissors":
         case player === "Paper" && computer === "Rock":
         case player === "Scissors" && computer === "Paper":
-            return `You Win! ${player} beats ${computer}.`;
+            console.log(`You Win! ${player} beats ${computer}.`);
+            return 0;
 
         default:
-            return `You Lose! ${computer} beats ${player}.`;
+            console.log(`You Lose! ${computer} beats ${player}.`);
+            return 1;
     }
 }
 
-const playerSelection = getPlayerChoice();
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+    for (let i = 0; i < 5; i++) {
+        const playerSelection = getPlayerChoice();
+        const computerSelection = getComputerChoice();
+        const roundResult = playRound(playerSelection, computerSelection);
+        if (roundResult === 0) playerScore++;
+        else computerScore++;
+    }
+
+    console.log(getWinnerMessage(playerScore, computerScore));
+}
+
+function getWinnerMessage(playerScore, computerScore) {
+    if (playerScore > computerScore) {
+        return `The game is over and YOU WIN! You scored ${playerScore} points and the computer scored ${computerScore} points.`;
+    } else {
+        return `The game is over and YOU LOSE! You scored ${playerScore} points and the computer scored ${computerScore} points.`;
+    }
+}
+
+game();
