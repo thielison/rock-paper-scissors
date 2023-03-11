@@ -1,57 +1,50 @@
-function getPlayerChoice() {
-    const choice = prompt("Rock, paper, or scissors?").toLocaleLowerCase();
-    if (choice === "rock") {
-        return "Rock";
-    } else if (choice === "paper") {
-        return "Paper";
-    } else if (choice === "scissors") {
-        return "Scissors";
-    } else {
-        return "Not an option.";
-    }
-}
+const buttons = document.querySelectorAll(".rps-buttons button");
+const roundResult = document.getElementById("round-result");
+const score = document.getElementById("score");
+const winner = document.getElementById("winner");
 
-function getComputerChoice() {
-    const number = Math.floor(Math.random() * 3 + 1);
-    if (number === 1) {
-        return "Rock";
-    } else if (number === 2) {
-        return "Paper";
-    } else {
-        return "Scissors";
-    }
-}
+buttons.forEach((btn) => {
+    btn.addEventListener("click", playRound);
+});
 
-function playRound(player, computer) {
+let player = 0;
+let computer = 0;
+
+function playRound(e) {
+    const playerSelection = e.target.innerText;
+    const computerSelection = getComputerSelection();
+
     switch (true) {
-        case player === computer:
-            console.log("It's a tie!");
+        case playerSelection === computerSelection:
+            roundResult.textContent = "It's a tie!";
             break;
 
-        case player === "Rock" && computer === "Scissors":
-        case player === "Paper" && computer === "Rock":
-        case player === "Scissors" && computer === "Paper":
-            console.log(`You Win! ${player} beats ${computer}.`);
-            return 0;
+        case playerSelection === "Rock" && computerSelection === "Scissors":
+        case playerSelection === "Paper" && computerSelection === "Rock":
+        case playerSelection === "Scissors" && computerSelection === "Paper":
+            player++;
+            roundResult.textContent = `You Win! ${playerSelection} beats ${computerSelection}.`;
+            break;
 
         default:
-            console.log(`You Lose! ${computer} beats ${player}.`);
-            return 1;
+            computer++;
+            roundResult.textContent = `You Lose! ${computerSelection} beats ${playerSelection}.`;
+    }
+
+    score.textContent = "PLAYER: " + player + "   " + "COMPUTER: " + computer;
+
+    if (player === 5 || computer === 5) {
+        winner.textContent = getWinnerMessage(player, computer);
+
+        buttons.forEach((btn) => {
+            btn.disabled = true;
+        });
     }
 }
 
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
-    for (let i = 0; i < 5; i++) {
-        const playerSelection = getPlayerChoice();
-        const computerSelection = getComputerChoice();
-        const roundResult = playRound(playerSelection, computerSelection);
-        if (roundResult === 0) playerScore++;
-        else computerScore++;
-    }
-
-    console.log(getWinnerMessage(playerScore, computerScore));
+function getComputerSelection() {
+    const options = ["Rock", "Paper", "Scissors"];
+    return options[Math.floor(Math.random() * options.length)];
 }
 
 function getWinnerMessage(playerScore, computerScore) {
@@ -61,5 +54,3 @@ function getWinnerMessage(playerScore, computerScore) {
         return `The game is over and YOU LOSE! You scored ${playerScore} points and the computer scored ${computerScore} points.`;
     }
 }
-
-game();
