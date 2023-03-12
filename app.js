@@ -7,7 +7,15 @@ const playerScore = document.getElementById("player-score");
 const computerScore = document.getElementById("computer-score");
 
 buttons.forEach((btn) => {
-    btn.addEventListener("click", playRound);
+    btn.addEventListener("click", function (e) {
+        buttons.forEach((button) => {
+            // Removes color of all buttons
+            button.parentElement.style.backgroundColor = "";
+        });
+        // Add color to clicked button
+        btn.parentElement.style.backgroundColor = "#8ecae6";
+        playRound(e);
+    });
 });
 
 let player = 0;
@@ -16,7 +24,7 @@ let computer = 0;
 function playRound(e) {
     const playerSelection = e.target.className;
     const computerSelection = getComputerSelection();
-    // #8ecae6
+
     switch (true) {
         case playerSelection === computerSelection:
             roundResult.textContent = "It's a tie!";
