@@ -10,31 +10,59 @@
     </head>
     <body>
         <div id="header-container">
-            <h1>ROCK PAPER SCISSORS GAME</h1>
+            <h1>ROCK PAPER SCISSORS</h1>
         </div>
         <h2>Round <span id="round">1</span></h2>
         <div class="mid-cards">
             <div class="player rps-buttons">
-                <h3>Player</h3>
+                <h3>PLAYER</h3>
                 <div id="player-buttons">
-                    <button id="rock">Rock</button>
-                    <button id="paper">Paper</button>
-                    <button id="scissors">Scissors</button>
+                    <div class="play-option">
+                        <h4>ROCK</h4>
+                        <button>
+                            <img src="images/rock.png" class="rock" alt="Rock" />
+                        </button>
+                    </div>
+                    <div class="play-option">
+                        <h4>PAPER</h4>
+                        <button>
+                            <img src="images/paper.png" class="paper" alt="Paper" />
+                        </button>
+                    </div>
+                    <div class="play-option">
+                        <h4>SCISSORS</h4>
+                        <button>
+                            <img src="images/scissors.png" class="scissors" alt="Scissors" />
+                        </button>
+                    </div>
                 </div>
-                <h4>Your choice:<span id="player-choice"></span></h4>
             </div>
-            <h3 id="round-result"></h3>
-            <div class="computer">
-                <h3>Computer</h3>
+            <div class="computer rps-buttons">
+                <h3>COMPUTER</h3>
                 <div id="computer-buttons">
-                    <button>ROCK IMAGE</button>
-                    <button>PAPER IMAGE</button>
-                    <button>SCISSORS IMAGE</button>
+                    <div class="play-option">
+                        <h4>ROCK</h4>
+                        <button class="rock">
+                            <img src="images/rock.png" alt="Rock" />
+                        </button>
+                    </div>
+                    <div class="play-option">
+                        <h4>PAPER</h4>
+                        <button class="paper">
+                            <img src="images/paper.png" alt="Paper" />
+                        </button>
+                    </div>
+                    <div class="play-option">
+                        <h4>SCISSORS</h4>
+                        <button class="scissors">
+                            <img src="images/scissors.png" alt="Scissors" />
+                        </button>
+                    </div>
                 </div>
-                <h4>PC selected:<span id="computer-choice"></span></h4>
             </div>
         </div>
         <h4 id="score">YOU <span id="player-score">0</span> - <span id="computer-score">0</span> PC</h4>
+        <h3 id="round-result"></h3>
         <h4 id="winner"></h4>
     </body>
 </html>

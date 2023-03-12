@@ -1,9 +1,6 @@
-const buttons = document.querySelectorAll(".rps-buttons button");
+const buttons = document.querySelectorAll("#player-buttons .play-option button");
 const roundResult = document.getElementById("round-result");
 const winner = document.getElementById("winner");
-
-const playerChoice = document.getElementById("player-choice");
-const computerChoice = document.getElementById("computer-choice");
 
 const round = document.getElementById("round");
 const playerScore = document.getElementById("player-score");
@@ -17,19 +14,17 @@ let player = 0;
 let computer = 0;
 
 function playRound(e) {
-    const playerSelection = e.target.innerText;
-    playerChoice.textContent = " " + playerSelection;
+    const playerSelection = e.target.className;
     const computerSelection = getComputerSelection();
-    computerChoice.textContent = " " + computerSelection;
-
+    // #8ecae6
     switch (true) {
         case playerSelection === computerSelection:
             roundResult.textContent = "It's a tie!";
             break;
 
-        case playerSelection === "Rock" && computerSelection === "Scissors":
-        case playerSelection === "Paper" && computerSelection === "Rock":
-        case playerSelection === "Scissors" && computerSelection === "Paper":
+        case playerSelection === "rock" && computerSelection === "scissors":
+        case playerSelection === "paper" && computerSelection === "rock":
+        case playerSelection === "scissors" && computerSelection === "paper":
             player++;
             roundResult.innerHTML = "You won the round!";
             break;
@@ -54,7 +49,7 @@ function playRound(e) {
 }
 
 function getComputerSelection() {
-    const options = ["Rock", "Paper", "Scissors"];
+    const options = ["rock", "paper", "scissors"];
     return options[Math.floor(Math.random() * options.length)];
 }
 
