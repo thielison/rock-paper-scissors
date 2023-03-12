@@ -5,17 +5,36 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="app.js" defer></script>
+        <link rel="stylesheet" href="style.css" />
         <title>Rock Paper Scissors Game</title>
     </head>
     <body>
-        <h1>ROCK PAPER SCISSORS GAME</h1>
-        <div class="rps-buttons">
-            <button id="rock">Rock</button>
-            <button id="paper">Paper</button>
-            <button id="scissors">Scissors</button>
+        <div id="header-container">
+            <h1>ROCK PAPER SCISSORS GAME</h1>
         </div>
-        <p id="round-result"></p>
-        <p id="score"></p>
-        <p id="winner"></p>
+        <h2>Round <span id="round">1</span></h2>
+        <div class="mid-cards">
+            <div class="player rps-buttons">
+                <h3>Player</h3>
+                <div id="player-buttons">
+                    <button id="rock">Rock</button>
+                    <button id="paper">Paper</button>
+                    <button id="scissors">Scissors</button>
+                </div>
+                <h4>Your choice:<span id="player-choice"></span></h4>
+            </div>
+            <h3 id="round-result"></h3>
+            <div class="computer">
+                <h3>Computer</h3>
+                <div id="computer-buttons">
+                    <button>ROCK IMAGE</button>
+                    <button>PAPER IMAGE</button>
+                    <button>SCISSORS IMAGE</button>
+                </div>
+                <h4>PC selected:<span id="computer-choice"></span></h4>
+            </div>
+        </div>
+        <h4 id="score">YOU <span id="player-score">0</span> - <span id="computer-score">0</span> PC</h4>
+        <h4 id="winner"></h4>
     </body>
 </html>

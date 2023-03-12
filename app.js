@@ -1,7 +1,13 @@
 const buttons = document.querySelectorAll(".rps-buttons button");
 const roundResult = document.getElementById("round-result");
-const score = document.getElementById("score");
 const winner = document.getElementById("winner");
+
+const playerChoice = document.getElementById("player-choice");
+const computerChoice = document.getElementById("computer-choice");
+
+const round = document.getElementById("round");
+const playerScore = document.getElementById("player-score");
+const computerScore = document.getElementById("computer-score");
 
 buttons.forEach((btn) => {
     btn.addEventListener("click", playRound);
@@ -12,7 +18,9 @@ let computer = 0;
 
 function playRound(e) {
     const playerSelection = e.target.innerText;
+    playerChoice.textContent = " " + playerSelection;
     const computerSelection = getComputerSelection();
+    computerChoice.textContent = " " + computerSelection;
 
     switch (true) {
         case playerSelection === computerSelection:
@@ -23,17 +31,20 @@ function playRound(e) {
         case playerSelection === "Paper" && computerSelection === "Rock":
         case playerSelection === "Scissors" && computerSelection === "Paper":
             player++;
-            roundResult.textContent = `You Win! ${playerSelection} beats ${computerSelection}.`;
+            roundResult.innerHTML = "You won the round!";
             break;
 
         default:
             computer++;
-            roundResult.textContent = `You Lose! ${computerSelection} beats ${playerSelection}.`;
+            roundResult.innerHTML = "You lost the round!";
     }
 
-    score.textContent = "PLAYER: " + player + "   " + "COMPUTER: " + computer;
+    round.textContent++;
+    playerScore.textContent = player;
+    computerScore.textContent = computer;
 
     if (player === 5 || computer === 5) {
+        winner.style.visibility = "visible";
         winner.textContent = getWinnerMessage(player, computer);
 
         buttons.forEach((btn) => {
@@ -49,8 +60,8 @@ function getComputerSelection() {
 
 function getWinnerMessage(playerScore, computerScore) {
     if (playerScore > computerScore) {
-        return `The game is over and YOU WIN! You scored ${playerScore} points and the computer scored ${computerScore} points.`;
+        return "The game is over and YOU WIN!";
     } else {
-        return `The game is over and YOU LOSE! You scored ${playerScore} points and the computer scored ${computerScore} points.`;
+        return "The game is over and YOU LOSE!";
     }
 }
