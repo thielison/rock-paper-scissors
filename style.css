@@ -19,7 +19,6 @@ body {
 #header-container {
   color: #167eec;
   text-align: center;
-  width: 80%;
   margin: 1em 0 1em;
   padding: 1em 0.5em 1em;
   border-radius: 1.5em;
@@ -30,8 +29,20 @@ h1, h2, h3 {
 }
 
 h1 {
+  /* Writing animation */
+  animation: writing 1s steps(20) forwards;
+  border-right: 2px solid transparent;
+  white-space: nowrap;
+  overflow: hidden;
+
   color: #ffffff;
   font-size: 5em;
+}
+
+@keyframes writing {
+  /* H1 Animation definition */
+  from { width: 0; }
+  to { width: 100%; }
 }
 
 h2 {
