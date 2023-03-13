@@ -55,13 +55,13 @@ p {
   align-items: center;
 }
 
-#player-buttons div, #computer-buttons div {
+#player-buttons .play-option, #computer-buttons .play-option {
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
   height: 150px;
   width: 125px;
-  background-color: white;
+  background-color: #ffffff;
   border-radius: 5%;
   transition: all 0.2s ease;
   box-shadow: 6px 6px 5px black;

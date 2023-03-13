@@ -1,4 +1,6 @@
-const buttons = document.querySelectorAll("#player-buttons .play-option button");
+const playerButtons = document.querySelectorAll("#player-buttons .play-option button");
+const computerButtons = document.querySelectorAll("#computer-buttons .play-option");
+
 const roundResult = document.getElementById("round-result");
 const winner = document.getElementById("winner");
 
@@ -6,13 +8,19 @@ const round = document.getElementById("round");
 const playerScore = document.getElementById("player-score");
 const computerScore = document.getElementById("computer-score");
 
-buttons.forEach((btn) => {
+playerButtons.forEach((btn) => {
     btn.addEventListener("click", function (e) {
-        buttons.forEach((button) => {
-            // Removes color of all buttons
+        playerButtons.forEach((button) => {
+            // Removes color of all player buttons
             button.parentElement.style.backgroundColor = "";
         });
-        // Add color to clicked button
+
+        // Removes color of all computer buttons
+        for (let btn of computerButtons) {
+            btn.style.backgroundColor = "";
+        }
+
+        // Add color to clicked button of player
         btn.parentElement.style.backgroundColor = "#8ecae6";
         playRound(e);
     });
@@ -24,6 +32,10 @@ let computer = 0;
 function playRound(e) {
     const playerSelection = e.target.className;
     const computerSelection = getComputerSelection();
+
+    // Add color to specific button of computer selection
+    const computerButton = document.querySelector(`#computer-buttons .play-option .${computerSelection}`);
+    computerButton.parentElement.parentElement.style.backgroundColor = "#ff595e";
 
     switch (true) {
         case playerSelection === computerSelection:
@@ -50,7 +62,7 @@ function playRound(e) {
         winner.style.visibility = "visible";
         winner.textContent = getWinnerMessage(player, computer);
 
-        buttons.forEach((btn) => {
+        playerButtons.forEach((btn) => {
             btn.disabled = true;
         });
     }
