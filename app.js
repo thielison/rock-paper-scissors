@@ -2,7 +2,6 @@ const playerButtons = document.querySelectorAll("#player-buttons .play-option bu
 const computerButtons = document.querySelectorAll("#computer-buttons .play-option");
 
 const roundResult = document.getElementById("round-result");
-const winner = document.getElementById("winner");
 
 const round = document.getElementById("round");
 const playerScore = document.getElementById("player-score");
@@ -59,8 +58,7 @@ function playRound(e) {
     computerScore.textContent = computer;
 
     if (player === 5 || computer === 5) {
-        winner.style.visibility = "visible";
-        winner.textContent = getWinnerMessage(player, computer);
+        roundResult.textContent = getWinnerMessage(player, computer);
 
         playerButtons.forEach((btn) => {
             btn.disabled = true;

@@ -6,6 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="app.js" defer></script>
         <link rel="stylesheet" href="style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap"
+            rel="stylesheet" />
         <title>Rock Paper Scissors Game</title>
     </head>
     <body>
@@ -13,6 +18,7 @@
             <h1>ROCK PAPER SCISSORS</h1>
         </div>
         <h2>Round <span id="round">1</span></h2>
+        <h3>YOU <span id="player-score">0</span> - <span id="computer-score">0</span> PC</h3>
         <div class="mid-cards">
             <div class="player rps-buttons">
                 <h3>PLAYER</h3>
@@ -61,8 +67,6 @@
                 </div>
             </div>
         </div>
-        <h4 id="score">YOU <span id="player-score">0</span> - <span id="computer-score">0</span> PC</h4>
-        <h3 id="round-result"></h3>
-        <h4 id="winner"></h4>
+        <h3 id="round-result">Click a button to start the game.</h3>
     </body>
 </html>
