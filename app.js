@@ -11,15 +11,7 @@ const resetButton = document.getElementById("reset-button");
 
 playerButtons.forEach((btn) => {
     btn.addEventListener("click", function (e) {
-        playerButtons.forEach((button) => {
-            // Removes color of all player buttons
-            button.parentElement.style.backgroundColor = "";
-        });
-
-        // Removes color of all computer buttons
-        for (let btn of computerButtons) {
-            btn.style.backgroundColor = "";
-        }
+        removeAllButtonsColors();
 
         // Add color to clicked button of player
         btn.parentElement.style.backgroundColor = "#8ecae6";
@@ -85,7 +77,6 @@ function getWinnerMessage(playerScore, computerScore) {
 
 function resetGame() {
     resetButton.style.visibility = "visible";
-    console.log(resetButton);
 
     resetButton.addEventListener("click", function () {
         player = 0;
@@ -94,20 +85,25 @@ function resetGame() {
         computerScore.textContent = 0;
         round.textContent = 0;
 
+        removeAllButtonsColors();
+
         playerButtons.forEach((btn) => {
             btn.disabled = false;
         });
 
-        playerButtons.forEach((button) => {
-            // Removes color of all player buttons
-            button.parentElement.style.backgroundColor = "";
-        });
-
-        // Removes color of all computer buttons
-        for (let btn of computerButtons) {
-            btn.style.backgroundColor = "";
-        }
+        resetButton.style.visibility = "hidden";
 
         roundResult.textContent = "Click a button to start the game";
     });
+}
+
+function removeAllButtonsColors() {
+    // Removes color of all buttons
+    playerButtons.forEach((button) => {
+        button.parentElement.style.backgroundColor = "";
+    });
+
+    for (let btn of computerButtons) {
+        btn.style.backgroundColor = "";
+    }
 }
