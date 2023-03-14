@@ -11,7 +11,7 @@ body {
   font-size: 16px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   height: 100vh;
 }
@@ -24,7 +24,10 @@ body {
   border-radius: 1.5em;
 }
 
-h1, h2, h3, #reset-button {
+h1, 
+h2, 
+h3, 
+#reset-button {
   font-family: 'Press Start 2P', Verdana, cursive, sans-serif;
 }
 
@@ -70,13 +73,15 @@ h4 {
   font-size: 1.5em;
 }
 
-#player-buttons, #computer-buttons {
+#player-buttons, 
+#computer-buttons {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
 
-#player-buttons .play-option, #computer-buttons .play-option {
+#player-buttons .play-option, 
+#computer-buttons .play-option {
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
@@ -93,15 +98,20 @@ h4 {
   background-color: #9e9e9e;
 }
 
-#player-buttons h4, #computer-buttons h4 {
+#player-buttons h4, 
+#computer-buttons h4 {
   color: black;
 }
 
-#player-buttons, #player-buttons h4, #player-buttons button {
+#player-buttons, 
+#player-buttons h4, 
+#player-buttons button {
   cursor: pointer;
 }
 
-#computer-buttons, #computer-buttons h4, #computer-buttons button {
+#computer-buttons, 
+#computer-buttons h4, 
+#computer-buttons button {
   cursor: not-allowed;
 }
 
@@ -134,7 +144,8 @@ button img {
   text-align: center;
 }
 
-.mid-cards .player, .mid-cards .computer {
+.mid-cards .player, 
+.mid-cards .computer {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -151,7 +162,6 @@ button img {
   color: #000000;
   background-color: #ffffff;
   padding: 10px 10px 4px 10px;
-  /* border: 3px solid #ff595e; */
   visibility: hidden;
 }
 
