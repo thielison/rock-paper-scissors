@@ -97,8 +97,12 @@ h4 {
   color: black;
 }
 
-.play-option, .play-option h4, .play-option button {
+#player-buttons, #player-buttons h4, #player-buttons button {
   cursor: pointer;
+}
+
+#computer-buttons, #computer-buttons h4, #computer-buttons button {
+  cursor: not-allowed;
 }
 
 button img {
