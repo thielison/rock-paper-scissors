@@ -151,6 +151,11 @@ button img {
   color: #000000;
   background-color: #ffffff;
   padding: 10px 10px 4px 10px;
-  border: 3px solid #ff595e;
+  /* border: 3px solid #ff595e; */
   visibility: hidden;
+}
+
+#reset-button:hover {
+  transform: scale(0.97);
+  color: #ff595e;
 }
