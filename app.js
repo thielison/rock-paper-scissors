@@ -3,9 +3,11 @@ const computerButtons = document.querySelectorAll("#computer-buttons .play-optio
 
 const roundResult = document.getElementById("round-result");
 
-const round = document.getElementById("round");
-const playerScore = document.getElementById("player-score");
-const computerScore = document.getElementById("computer-score");
+let round = document.getElementById("round");
+let playerScore = document.getElementById("player-score");
+let computerScore = document.getElementById("computer-score");
+
+const resetButton = document.getElementById("reset-button");
 
 playerButtons.forEach((btn) => {
     btn.addEventListener("click", function (e) {
@@ -63,6 +65,8 @@ function playRound(e) {
         playerButtons.forEach((btn) => {
             btn.disabled = true;
         });
+
+        resetGame();
     }
 }
 
@@ -77,4 +81,33 @@ function getWinnerMessage(playerScore, computerScore) {
     } else {
         return "The game is over and YOU LOSE!";
     }
+}
+
+function resetGame() {
+    resetButton.style.visibility = "visible";
+    console.log(resetButton);
+
+    resetButton.addEventListener("click", function () {
+        player = 0;
+        computer = 0;
+        playerScore.textContent = 0;
+        computerScore.textContent = 0;
+        round.textContent = 0;
+
+        playerButtons.forEach((btn) => {
+            btn.disabled = false;
+        });
+
+        playerButtons.forEach((button) => {
+            // Removes color of all player buttons
+            button.parentElement.style.backgroundColor = "";
+        });
+
+        // Removes color of all computer buttons
+        for (let btn of computerButtons) {
+            btn.style.backgroundColor = "";
+        }
+
+        roundResult.textContent = "Click a button to start the game";
+    });
 }

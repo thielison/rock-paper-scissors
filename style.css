@@ -55,6 +55,16 @@ h3 {
   font-size: 2em;
 }
 
+h3 #YOU {
+  background-color: #8ecae6;
+  padding: 10px 10px 4px 10px;
+}
+
+h3 #COM {
+  background-color: #ff595e;
+  padding: 10px 10px 4px 10px;
+}
+
 h4 {
   color: #ffffff;
   font-size: 1.5em;
@@ -125,4 +135,8 @@ button img {
   border-radius: 0.7em;
   width: 500px;
   height: 300px;
+}
+
+#reset-button {
+  visibility: hidden;
 }
